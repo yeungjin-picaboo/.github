@@ -65,30 +65,75 @@ $ git clone https://github.com/yeungjin-picaboo
 $ cd yeungjin-picaboo
 ```
 ### Frontend
+- .env 파일설정
+  - NEXT_PUBLIC_API_URL=BACKEND_PORT
+  - NEXT_PUBLIC_DIARY_IMAGE_URL=AWS_S3_URL
+  - NEXT_PUBLIC_LOCAL_PROVIDER_URL=AWS_GANACHE_EC2
+
 ```ter
 $ cd picaboo-next-web
 $ npm install
 $ npm run build
 $ npm run start
 ```
+
 ### Backend(NestJS)
+- .env 파일설정
+  - PORT=BACKEND_PORT
+  - CLIENT_HOST=NEXT_PORT
+  - JWT_ACCESS_SECRET=
+  - JWT_REFRESH_SECRET=
+
+    - 다음 명령을 사용하여 임의의 비밀번호를 생성
+    - 두번 비밀번호키를 생성받고 입력
+    - $ node -e "console.log(require('crypto').randomBytes(256).toString('base64'));"
+
+  - DB_HOST=POSTGRESQL
+  - DB_PORT=POSTGRESQL
+  - DB_USERNAME=POSTGRESQL
+  - DB_PASSWORD=POSTGRESQL
+  - DB_NAME=POSTGRESQL
+
+  - WEATHER_API_KEY = https://openweathermap.org/api에서 로그인 후 Current Weather Data API키 받아서 입력
+    
 ```ter
 $ cd picaboo-nest-server
 $ npm install
 $ npm run dev
 ```
+
 ### Backend(FastAPI)
+- .env
+  - STABILITY_KEY=https://dreamstudio.ai/account 로그인 후 API키를 받아서 입력
+  - OPENAPI_KEY=https://platform.openai.com/account/api-keys 로그인 후 API키 받아서 입력
+
+  - DB_HOST='POSTGRESQL'
+  - DB_PORT=POSTGRESQL
+  - DB_USERNAME='POSTGRESQL'
+  - DB_PASSWORD='POSTGRESQL'
+  - DB_NAME='POSTGRESQL'
+
+  - AWS_ACCESS_KEY_ID=AWS로그인 후 내 정보에서 액세스 키에서 키를 발급받아 입력
+  - AWS_SECRET_ACCESS_KEY=AWS_ACCESS_KEY_ID를 발급받을때 함께 발급받음.
+  - REGION="ap-northeast-2" # AWS REGION
+ 
 ```ter
 $ cd picaboo-fastapi-server
+$ pip install
 $ pip install fastapi
 $ pip install "uvicorn[standard]"
 $ uvicorn main:app --reload --host=0.0.0.0 --port=9000
 ```
-### Moblie(Kotlin) Use Android Studio
+
+### Moblie(Kotlin) 
+- Android Studio 사용
+- HOST = NESTJS_SERVER_PORT
+  
 ```ter
 $ git clone https://github.com/yeungjin-picaboo/picaboo-kotlin-android
 # Emulator execution
 ```
+
 ## 技術スタック 🔨
 ### Environment
 <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"> <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/visualstudiocode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
